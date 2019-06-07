@@ -1,0 +1,86 @@
+
+ body{
+  background-image: url('/static/img/black.jpg');
+  z-index: 0;
+  background-color: black;
+  background-blend-mode: lighten; */
+
+}
+
+h2, h4{
+  font-family: 'Shadows Into Light', cursive;
+}
+
+p, h5 {
+  color:white;
+  font-size: 20px;
+  font-family: 'Abel', sans-serif;
+}
+
+
+
+
+
+
+label {
+
+  position: relative;
+
+  float: right;
+
+  color: #C8C8C8;
+
+}
+
+
+
+label:before {
+
+  margin: 5px;
+
+  content: "\f005";
+
+  font-family: FontAwesome;
+
+  display: inline-block;
+
+  font-size: 3.0em;
+
+  color: lightgreen;
+
+  -webkit-user-select: none;
+
+  -moz-user-select: none;
+
+  user-select: none;
+
+}
+
+
+
+input:checked ~ label:before {
+
+  color: red;
+
+}
+
+
+
+label:hover ~ label:before {
+
+  color: darkgreen;
+
+}
+
+
+
+label:hover:before {
+
+  color: red;
+
+}
+
+#john{
+height: 20px;
+
+}

@@ -1,0 +1,45 @@
+{%extends "registration/base.html"%}
+{% load bootstrap4 %}
+{% block content %}
+<br>
+
+<div class="container-fluid authen">
+  <header class="text-center" style="font-size: 40px;"><img src="/static/img/logo.png" alt="" style="max-width:20rem;"></header>
+  <br>
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="card card-default">
+        <div class="card-heading">
+          <h6 class="text-center">Sign In</h6>
+        </div>
+        <div class="card-body">
+          <form method="post">
+            {% csrf_token %}
+            {% for field in form %}
+            <h6>
+              {{ field.label_tag }}<br>
+              {{ field }}
+              {% if field.help_text %}
+              <small style="display: none">{{ field.help_text }}</small>
+              {% endif %}
+              {% for error in field.errors %}
+              <h6 style="color: red">{{ error }}</h6>
+              {% endfor %}
+            </h6>
+            {% endfor %}
+            <div class="form-group">
+              <input type="submit" class="btn btn-outline-success btn-sm" value="Sign Up">
+              <h6 class="text">Do you already have an account?<a style="color:green;" class="btn btn-default" href="/accounts/login/">Sign In</a></h6>
+            </div>
+            <input type="hidden" name="next" value="{{next}}">
+
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4"></div>
+  </div>
+
+      {% endblock %}

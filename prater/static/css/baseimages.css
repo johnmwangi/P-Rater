@@ -1,0 +1,39 @@
+@media (min-width: 576px) {
+ .modal-dialog { max-width: none; }
+}
+
+/* .modal {
+ width: 90%;
+ height: ;
+ padding: 0;
+ align-content: center;
+} */
+
+h2, h4{
+  font-family: 'Shadows Into Light', cursive;
+}
+
+p, h5 {
+  color:white;
+  font-size: 20px;
+  font-family: 'Abel', sans-serif;
+}
+.navbar{
+
+  font-family: 'Abel', sans-serif;
+  font-size: 19px;
+  /* background-image: url('/static/img/liverpool.jpg'); */
+  background-repeat: repeat-x;
+
+}
+
+body {
+
+  background-image: url('https://images.pexels.com/photos/1308624/pexels-photo-1308624.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
+  }
+
+.modal-content {
+  background-color: rgba(255,0,255,0.7;
+  text-decoration-color: white;
+
+}

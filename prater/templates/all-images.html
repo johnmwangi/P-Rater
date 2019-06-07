@@ -1,0 +1,158 @@
+{%extends 'base.html'%}
+{% block content %}
+{{ block.super}}
+{% load bootstrap4 %}
+<br>
+
+<div id = "john">
+<div class="container-fluid">
+
+
+
+  <!--Carousel Wrapper-->
+<div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
+  <!--Indicators-->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-2" data-slide-to="1"></li>
+    <li data-target="#carousel-example-2" data-slide-to="2"></li>
+  </ol>
+  <!--/.Indicators-->
+  <!--Slides-->
+  <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active">
+    <div class="view" style="height:500px;">
+        <img class="d-block w-100" src="https://images.pexels.com/photos/811101/pexels-photo-811101.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=1&w=500"
+          alt="First slide">
+        <div class="mask rgba-black-light"></div>
+      </div>
+      <div class="carousel-caption">
+        <h3 class="h3-responsive">000</h3>
+
+      </div>
+    </div>
+    <div class="carousel-item">
+      <!--Mask color-->
+      <div class="view" style="height:500px;">
+        <img class="d-block w-100" src="https://images.pexels.com/photos/1050244/pexels-photo-1050244.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=1&w=500"
+          alt="Second slide">
+        <div class="mask rgba-black-strong"></div>
+      </div>
+      <div class="carousel-caption">
+        <h3 class="h3-responsive">000</h3>
+
+      </div>
+    </div>
+    <div class="carousel-item">
+      <!--Mask color-->
+      <div class="view" style="height:500px;">
+        <img class="d-block w-100" src="https://images.pexels.com/photos/1070981/pexels-photo-1070981.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=1&w=500"
+          alt="Third slide">
+        <div class="mask rgba-black-slight"></div>
+      </div>
+      <div class="carousel-caption">
+        <h3 class="h3-responsive">000</h3>
+
+      </div>
+    </div>
+  </div>
+  <!--/.Slides-->
+  <!--Controls-->
+  <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+  <!--/.Controls-->
+</div>
+<!--/.Carousel Wrapper-->
+</div>
+<br>
+<br>
+
+  <div class="card-columns">
+    {% for image in images %}
+    <div class="card border-secondary">
+      <img class="card-img-top" class="img-responsive" src="{{image.image.url}}" data-target="#extraModal{{image.id}}" data-toggle="modal" size="100px200">
+    </div>
+
+    {%endfor%}
+  </div>
+
+</div>
+
+<!-- Large modal -->
+{% for image in images %}
+
+<!-- Modal -->
+<div class="modal fade" id="extraModal{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="extra" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title" id="exampleModalLongTitle">Title: {{image.name}}</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+      </div>
+
+      <div class="modal-body">
+        <img class="card-img-top" class="img-responsive" src="{{image.image.url}}" size="100px200">
+        {%autoescape on%}
+        <h6 style="color:black">Brief product description: {{image.description|safe}}   </h6>
+        {%endautoescape%}
+
+        <h6>Location: {{image.location}}</h6>
+        <input type="checkbox" id="st1" value="1" />
+
+<label for="st1"></label>
+
+<input type="checkbox" id="st2" value="2" />
+
+<label for="st2"></label>
+
+<input type="checkbox" id="st3" value="3" />
+
+<label for="st3"></label>
+
+<input type="checkbox" id="st4" value="4" />
+
+<label for="st4"></label>
+
+<input type="checkbox" id="st5" value="5" />
+
+<label for="st5"></label>
+
+
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+function copylink(value) {
+    console.log('hi yellow')
+    function handler(event){
+        event.clipboardData.setData('text/plain', value);
+        event.preventDefault();
+        document.removeEventListener('copy', handler, true);
+    }
+    document.addEventListener('copy', handler, true);
+    document.execCommand('copy');
+}
+</script>
+
+
+
+
+
+
+{%endfor%}
+{% endblock %}

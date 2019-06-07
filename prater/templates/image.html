@@ -1,0 +1,32 @@
+{%extends 'base.html'%}
+{% block content %}
+{{ block.super}}
+{% load bootstrap4 %}
+<link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
+
+<br>
+<br>
+<div class="container">
+
+  <div class="card-columns">
+
+    <div class="card border-secondary">
+      <img class="card-img-top" class="img-responsive" src="{{image.gallery_image.url}}" data-target="#extraModal{{image.id}}" data-toggle="modal" size="100px200">
+    </div>
+    <div class="card-body">
+      <p>About: {{product.description}}</p>
+      <p>Location: {{image.location}}</p>
+      {% load ratings %}
+      {% ratings image %}
+
+      {% for category in image.categories.all %}
+      <p> Category: {{ category.name }} </p>
+      {% endfor %}
+
+    </div>
+
+  </div>
+  <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
+
+</div>
+{% endblock %}
