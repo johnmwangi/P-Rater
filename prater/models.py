@@ -39,6 +39,7 @@ class Category(models.Model):
 class Image(models.Model):
     image = models.ImageField(upload_to='images/', blank=True)
     name = models.CharField(max_length=30)
+    image=models.ImageField(upload_to='business/',blank=True,default='user.png')
     description = HTMLField()
     location=models.ForeignKey(Location,on_delete=models.CASCADE)
     category=models.ManyToManyField(Category)
